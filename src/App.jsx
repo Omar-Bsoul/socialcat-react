@@ -1,0 +1,60 @@
+import React, { useState } from 'react';
+
+import { makeStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+import Fade from '@material-ui/core/Fade';
+import ToggleOn from '@material-ui/icons/ToggleOn';
+import ToggleOff from '@material-ui/icons/ToggleOff';
+
+import SocialAppBar from './components/common/socialAppBar';
+
+const useStyles = makeStyles(theme => ({
+  app: { textAlign: 'center' },
+  appHeader: {
+    backgroundColor: '#282c34',
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 'calc(10px + 2vmin)',
+    color: theme.palette.common.white
+  },
+  link: {
+    color: theme.palette.common.white
+  }
+}));
+
+const App = () => {
+  const classes = useStyles();
+  const [visible, setVisible] = useState(false);
+
+  const handleTogglingVisibility = () => setVisible(!visible);
+
+  return (
+    <div className={classes.app}>
+      <SocialAppBar />
+      <header className={classes.appHeader}>
+        <Fade in={visible}>
+          <p>
+            Welcome to{' '}
+            <code>
+              Social App
+              <br />
+              <a
+                className={classes.link}
+                href="https://www.thurrott.com/wp-content/uploads/sites/2/2019/04/facebook-fb5.jpg"
+                target="_blank"
+              >
+                Facebook Reference
+              </a>
+            </code>
+          </p>
+        </Fade>
+        <Fab onClick={handleTogglingVisibility}>{visible ? <ToggleOn /> : <ToggleOff />}</Fab>
+      </header>
+    </div>
+  );
+};
+
+export default App;
