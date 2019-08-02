@@ -45,13 +45,16 @@ const Root = () => {
                 className={classes.link}
                 href="https://www.thurrott.com/wp-content/uploads/sites/2/2019/04/facebook-fb5.jpg"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Facebook Reference
               </a>
             </code>
           </p>
         </Fade>
-        <Fab onClick={handleTogglingVisibility}>{visible ? <ToggleOn /> : <ToggleOff />}</Fab>
+        <Fab onClick={handleTogglingVisibility} rel="noopener noreferrer">
+          {visible ? <ToggleOn /> : <ToggleOff />}
+        </Fab>
       </header>
     </div>
   );
