@@ -19,12 +19,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    minWidth: '80vh',
+    width: '100vh',
     margin: theme.spacing(1)
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%' // 16:9
   },
   expand: {
     transform: 'rotate(0deg)',
