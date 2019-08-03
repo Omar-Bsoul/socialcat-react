@@ -3,98 +3,104 @@ import React, { Component } from 'react';
 // MUI Stuff
 
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles(theme => ({
-  container: { margin: '80px auto 0 auto', height: '100%', width: '100%' },
+  container: {
+    backgroundColor: '#282c34',
+    minWidth: '100vh',
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 'calc(10px + 2vmin)',
+    color: theme.palette.common.white
+  },
   button: {
-    marginTop: 20,
+    marginTop: theme.spacing(4),
     position: 'relative'
   },
-  form: {
-    textAlign: 'center'
-  },
-  image: {
-    margin: '20px auto 20px auto'
-  },
-  pageTitle: {
-    margin: '10px auto 10px auto'
-  },
   textField: {
-    margin: '10px auto 10px auto'
+    marginTop: theme.spacing(2),
+    color: theme.palette.primary.dark
+  },
+  input: {
+    color: theme.palette.secondary.light
   }
 }));
-const Signup = () => {
+const Signup = props => {
   const classes = useStyles();
-
   return (
-    <Grid container>
-      <Grid item sm />
-      <Grid item sm>
-        <div className={classes.container}>
-          <img />
-          <Typography variant='h2'>Signup</Typography>
-          <form className={classes.form} noValidate>
-            <TextField
-              className={classes.textField}
-              id='email'
-              name='email'
-              type='email'
-              label='Email'
-              fullWidth
-            />
-            <TextField
-              className={classes.textField}
-              id='userName'
-              name='userName'
-              type='text'
-              label='UserName'
-              fullWidth
-            />
-            <TextField
-              className={classes.textField}
-              id='handle'
-              name='handle'
-              type='text'
-              label='handle'
-              fullWidth
-            />
-            <TextField
-              className={classes.textField}
-              id='password'
-              name='password'
-              type='password'
-              label='Password'
-              fullWidth
-            />
-            <TextField
-              className={classes.textField}
-              id='confirmPassword'
-              name='confirmPassword'
-              type='password'
-              label='confirmPassword'
-              fullWidth
-            />
-
-            <Button
-              className={classes.button}
-              type='submit'
-              variant='contained'
-              color='primary'
-            >
-              Login
-            </Button>
-            <br />
-            <small>already have an account ? login </small>
-          </form>
-        </div>
-      </Grid>
-      <Grid item sm />
-    </Grid>
+    <div className={props.className}>
+      <img />
+      <Typography variant='h2'>Signup</Typography>
+      <form className={classes.form} noValidate>
+        <TextField
+          className={classes.textField}
+          id='email'
+          name='email'
+          type='email'
+          label='Email'
+          variant='outlined'
+          margin='normal'
+          fullWidth
+        />
+        <TextField
+          className={classes.textField}
+          id='userName'
+          name='userName'
+          type='text'
+          label='UserName'
+          variant='outlined'
+          margin='normal'
+          fullWidth
+        />
+        <TextField
+          className={classes.textField}
+          id='handle'
+          name='handle'
+          type='text'
+          label='handle'
+          variant='outlined'
+          margin='normal'
+          fullWidth
+        />
+        <TextField
+          className={classes.textField}
+          id='password'
+          name='password'
+          type='password'
+          label='Password'
+          variant='outlined'
+          margin='normal'
+          fullWidth
+        />
+        <TextField
+          className={classes.textField}
+          id='confirmPassword'
+          name='confirmPassword'
+          type='password'
+          label='confirmPassword'
+          variant='outlined'
+          margin='normal'
+          fullWidth
+        />
+        <Button
+          className={classes.button}
+          type='submit'
+          variant='contained'
+          color='primary'
+        >
+          Login
+        </Button>
+        <br />
+        <small>already have an account ? login </small>
+      </form>
+    </div>
   );
 };
 export default Signup;

@@ -8,6 +8,7 @@ import ToggleOff from '@material-ui/icons/ToggleOff';
 
 import SocialAppBar from './common/socialAppBar';
 import Login from '../pages/login';
+import Signup from '../pages/signup';
 
 const useStyles = makeStyles(theme => ({
   app: { textAlign: 'center' },
@@ -35,7 +36,9 @@ const Root = () => {
   return (
     <div className={classes.app}>
       <SocialAppBar />
-      <Login className={classes.content} />
+      {/*</div> {<Login className={classes.content} />*/}
+      <Signup className={classes.content} />
+
       {/*<header className={classes.appHeader}>
           <Fade in={visible}>
             <p>
