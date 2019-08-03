@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 
-// MUI Stuff
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -10,64 +9,58 @@ import { Paper } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles(theme => ({
-  container: {
-    backgroundColor: '#282c34',
-    minWidth: '100vh',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 'calc(10px + 2vmin)',
-    color: theme.palette.common.white
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1)
   },
-  button: {
-    marginTop: theme.spacing(4),
-    position: 'relative'
-  },
-  textField: {
-    marginTop: theme.spacing(2),
-    color: theme.palette.primary.dark
-  },
-  input: {
-    color: theme.palette.secondary.light
-  },
-  signup: {
-    marginTop: theme.spacing(2)
+  submit: {
+    margin: theme.spacing(3, 0, 2)
   }
 }));
+
 const Login = props => {
   const classes = useStyles();
 
   return (
-    <div className={props.className}>
-      <img />
-      <Typography variant="h2">Login</Typography>
-      <form noValidate>
+    <Fragment>
+      <Typography className={classes.typography} variant="h2">
+        Login
+      </Typography>
+      <form className={classes.form} noValidate>
         <TextField
-          className={classes.textField}
+          variant="outlined"
+          margin="normal"
+          required
+          fullWidth
+          id="email"
+          label="Email Address"
           name="email"
-          type="email"
-          label="Email"
-          variant="outlined"
-          margin="normal"
-          fullWidth
+          autoComplete="email"
+          autoFocus
         />
         <TextField
-          className={classes.textField}
-          name="password"
-          type="password"
-          label="Password"
-          margin="normal"
           variant="outlined"
+          margin="normal"
+          required
           fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
         />
-        <Button className={classes.button} variant="contained" color="primary">
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          className={classes.submit}
+        >
           Login
         </Button>
-        <Typography className={classes.signup}>dont have an account? sign up</Typography>
+        <Typography className={classes.typography}>dont have an account? sign up</Typography>
       </form>
-    </div>
+    </Fragment>
   );
 };
 
