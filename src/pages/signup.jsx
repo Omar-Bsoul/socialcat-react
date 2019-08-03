@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles(theme => ({
   container: {
     backgroundColor: '#282c34',
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 'calc(10px + 2vmin)',
+    fontSize: 'calc(8px + 2vmin)',
     color: theme.palette.common.white
   },
   button: {
@@ -30,6 +30,9 @@ const useStyles = makeStyles(theme => ({
   },
   input: {
     color: theme.palette.secondary.light
+  },
+  typography: {
+    marginBottom: theme.spacing(2)
   }
 }));
 const Signup = props => {
@@ -37,65 +40,77 @@ const Signup = props => {
   return (
     <div className={props.className}>
       <img />
-      <Typography variant='h2'>Signup</Typography>
+      <Typography className={classes.typography} variant='h2'>
+        Signup
+      </Typography>
       <form className={classes.form} noValidate>
-        <TextField
-          className={classes.textField}
-          id='email'
-          name='email'
-          type='email'
-          label='Email'
-          variant='outlined'
-          margin='normal'
-          fullWidth
-        />
-        <TextField
-          className={classes.textField}
-          id='userName'
-          name='userName'
-          type='text'
-          label='UserName'
-          variant='outlined'
-          margin='normal'
-          fullWidth
-        />
-        <TextField
-          className={classes.textField}
-          id='handle'
-          name='handle'
-          type='text'
-          label='handle'
-          variant='outlined'
-          margin='normal'
-          fullWidth
-        />
-        <TextField
-          className={classes.textField}
-          id='password'
-          name='password'
-          type='password'
-          label='Password'
-          variant='outlined'
-          margin='normal'
-          fullWidth
-        />
-        <TextField
-          className={classes.textField}
-          id='confirmPassword'
-          name='confirmPassword'
-          type='password'
-          label='confirmPassword'
-          variant='outlined'
-          margin='normal'
-          fullWidth
-        />
+        <Grid container spacing={1}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              autoComplete='fname'
+              name='fullName'
+              variant='outlined'
+              required
+              fullWidth
+              id='fullName'
+              label='Full Name'
+              autoFocus
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              variant='outlined'
+              required
+              fullWidth
+              id='handle'
+              label='handle'
+              name='handle'
+              autoComplete='handle'
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              variant='outlined'
+              required
+              fullWidth
+              id='email'
+              label='Email Address'
+              name='email'
+              autoComplete='email'
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              variant='outlined'
+              fullWidth
+              required
+              name='Password'
+              label='Password'
+              type='password'
+              id='password'
+              autoComplete='current-password'
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              variant='outlined'
+              fullWidth
+              required
+              name='ConsfirmPassword'
+              label='Confirm Password'
+              type='password'
+              id='Confirmpassword'
+              autoComplete='current-password'
+            />
+          </Grid>
+        </Grid>
         <Button
           className={classes.button}
           type='submit'
           variant='contained'
           color='primary'
         >
-          Login
+          Signup
         </Button>
         <br />
         <small>already have an account ? login </small>
