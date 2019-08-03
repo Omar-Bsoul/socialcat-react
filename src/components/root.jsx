@@ -7,12 +7,14 @@ import ToggleOn from '@material-ui/icons/ToggleOn';
 import ToggleOff from '@material-ui/icons/ToggleOff';
 
 import SocialAppBar from './common/socialAppBar';
+import Post from './common/post';
 
 const useStyles = makeStyles(theme => ({
   app: { textAlign: 'center' },
   appHeader: {
     backgroundColor: '#282c34',
     minHeight: '100vh',
+    paddingTop: theme.spacing(12),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -35,6 +37,10 @@ const Root = () => {
     <div className={classes.app}>
       <SocialAppBar />
       <header className={classes.appHeader}>
+        <Post />
+        <Post />
+        <Post />
+        <Post />
         <Fade in={visible}>
           <p>
             Welcome to{' '}
