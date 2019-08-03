@@ -1,6 +1,5 @@
 import React from 'react';
 import Root from './components/root';
-
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import { green, purple } from '@material-ui/core/colors';
