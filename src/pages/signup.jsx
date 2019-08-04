@@ -39,7 +39,6 @@ const Signup = props => {
   const classes = useStyles();
   return (
     <div className={props.className}>
-      <img />
       <Typography className={classes.typography} variant='h2'>
         Signup
       </Typography>

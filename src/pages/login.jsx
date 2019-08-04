@@ -41,31 +41,32 @@ const Login = props => {
 
   return (
     <div className={props.className}>
-      <img />
-      <Typography variant="h2">Login</Typography>
+      <Typography variant='h2'>Login</Typography>
       <form noValidate>
         <TextField
           className={classes.textField}
-          name="email"
-          type="email"
-          label="Email"
-          variant="outlined"
-          margin="normal"
+          name='email'
+          type='email'
+          label='Email'
+          variant='outlined'
+          margin='normal'
           fullWidth
         />
         <TextField
           className={classes.textField}
-          name="password"
-          type="password"
-          label="Password"
-          margin="normal"
-          variant="outlined"
+          name='password'
+          type='password'
+          label='Password'
+          margin='normal'
+          variant='outlined'
           fullWidth
         />
-        <Button className={classes.button} variant="contained" color="primary">
+        <Button className={classes.button} variant='contained' color='primary'>
           Login
         </Button>
-        <Typography className={classes.signup}>dont have an account? sign up</Typography>
+        <Typography className={classes.signup}>
+          dont have an account? sign up
+        </Typography>
       </form>
     </div>
   );

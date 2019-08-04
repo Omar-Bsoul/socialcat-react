@@ -36,7 +36,7 @@ const Root = () => {
   return (
     <div className={classes.app}>
       <SocialAppBar />
-      {/*</div> {<Login className={classes.content} />*/}
+      <Login className={classes.content} />
       <Signup className={classes.content} />
 
       {/*<header className={classes.appHeader}>
