@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-
-// MUI Stuff
+import React, { Fragment } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -8,113 +6,109 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
+
 const useStyles = makeStyles(theme => ({
-  container: {
-    backgroundColor: '#282c34',
-    minWidth: '100vh',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 'calc(8px + 2vmin)',
-    color: theme.palette.common.white
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1)
   },
-  button: {
-    marginTop: theme.spacing(4),
-    position: 'relative'
-  },
-  textField: {
-    marginTop: theme.spacing(2),
-    color: theme.palette.primary.dark
-  },
-  input: {
-    color: theme.palette.secondary.light
-  },
-  typography: {
-    marginBottom: theme.spacing(2)
+  submit: {
+    margin: theme.spacing(3, 0, 2)
   }
 }));
+
 const Signup = props => {
   const classes = useStyles();
   return (
+<<<<<<< HEAD
     <div className={props.className}>
       <Typography className={classes.typography} variant='h2'>
+=======
+    <Fragment>
+      <Typography className={classes.typography} variant="h2">
+>>>>>>> e6cf226f928bdee911d04fa85bb6ddd93cbb0a6f
         Signup
       </Typography>
       <form className={classes.form} noValidate>
         <Grid container spacing={1}>
           <Grid item xs={12} sm={6}>
             <TextField
-              autoComplete='fname'
-              name='fullName'
-              variant='outlined'
+              variant="outlined"
+              margin="normal"
               required
               fullWidth
-              id='fullName'
-              label='Full Name'
+              id="fullName"
+              label="Full Name"
+              name="fullName"
+              autoComplete="fullName"
               autoFocus
             />
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
-              variant='outlined'
+              variant="outlined"
+              margin="normal"
               required
               fullWidth
-              id='handle'
-              label='handle'
-              name='handle'
-              autoComplete='handle'
+              id="handle"
+              label="Handle"
+              name="handle"
+              autoComplete="handle"
+              autoFocus
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
-              variant='outlined'
+              variant="outlined"
+              margin="normal"
               required
               fullWidth
-              id='email'
-              label='Email Address'
-              name='email'
-              autoComplete='email'
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
             />
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
-              variant='outlined'
-              fullWidth
+              variant="outlined"
+              margin="normal"
               required
-              name='Password'
-              label='Password'
-              type='password'
-              id='password'
-              autoComplete='current-password'
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
-              variant='outlined'
-              fullWidth
+              variant="outlined"
+              margin="normal"
               required
-              name='ConsfirmPassword'
-              label='Confirm Password'
-              type='password'
-              id='Confirmpassword'
-              autoComplete='current-password'
+              fullWidth
+              name="confirmpassword"
+              label="Confirm Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
             />
           </Grid>
         </Grid>
         <Button
-          className={classes.button}
-          type='submit'
-          variant='contained'
-          color='primary'
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          className={classes.submit}
         >
-          Signup
+          SignUp
         </Button>
-        <br />
-        <small>already have an account ? login </small>
+        <Typography className={classes.typography}>already have an account ? login </Typography>
       </form>
-    </div>
+    </Fragment>
   );
 };
 export default Signup;
