@@ -7,6 +7,8 @@ import Box from '@material-ui/core/Box';
 
 import Login from '../pages/login';
 import Signup from '../pages/signup';
+import SocialAppBar from '../components/common/socialAppBar';
+import Profile from './common/profile';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,12 +32,16 @@ const Root = () => {
   const classes = useStyles();
 
   return (
-<<<<<<< HEAD
     <div className={classes.app}>
-      <SocialAppBar />
-      <Login className={classes.content} />
-      <Signup className={classes.content} />
-
+      {/*<SocialAppBar />*/}
+      <Grid container component='main' className={classes.root}>
+        <Grid item xs={false} sm={4} md={7} className={classes.image} />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <div className={classes.paper}>
+            <Profile />
+          </div>
+        </Grid>
+      </Grid>
       {/*<header className={classes.appHeader}>
           <Fade in={visible}>
             <p>
@@ -59,20 +65,6 @@ const Root = () => {
           </Fab>
         </header>*/}
     </div>
-=======
-    <React.Fragment>
-      {/*<SocialAppBar />*/}
-      <Grid container component="main" className={classes.root}>
-        <Grid item xs={false} sm={4} md={7} className={classes.image} />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <div className={classes.paper}>
-            <Login />
-            <Signup />
-          </div>
-        </Grid>
-      </Grid>
-    </React.Fragment>
->>>>>>> e6cf226f928bdee911d04fa85bb6ddd93cbb0a6f
   );
 };
 
