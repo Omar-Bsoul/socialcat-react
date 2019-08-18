@@ -10,6 +10,7 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
@@ -42,7 +43,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function Post(props) {
   const classes = useStyles();
-  const [readMore, setReadMore] = React.useState(false);
   const [expanded, setExpanded] = React.useState(false);
 
   let { limit } = props;
@@ -50,68 +50,74 @@ export default function Post(props) {
 
   const content = `This impressive paella is a perfect party dish and a fun meal to cook together with your
   guests. Add 1 cup of frozen peas along with the mussels, if you like.`;
-
-  function handleReadMoreClick() {
-    setReadMore(!readMore);
-  }
+  const comments = [
+    {
+      text:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore rerum ea veritatis repellat provident ducimus autem exercitationem dicta alias deleniti rem molestiae ipsam, et blanditiis! Delectus tempora dolorem nulla fuga?',
+      user: { fullName: 'Omar Bsoul' }
+    },
+    {
+      text:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore rerum ea veritatis repellat provident ducimus autem exercitationem dicta alias deleniti rem molestiae ipsam, et blanditiis! Delectus tempora dolorem nulla fuga?',
+      user: { fullName: 'Mossab Alhariri' }
+    },
+    {
+      text:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore rerum ea veritatis repellat provident ducimus autem exercitationem dicta alias deleniti rem molestiae ipsam, et blanditiis! Delectus tempora dolorem nulla fuga?',
+      user: { fullName: 'Omar Bsoul' }
+    }
+  ];
 
   function handleExpandClick() {
     setExpanded(!expanded);
   }
 
   return (
-    <Card className={classes.card}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
+    <React.Fragment>
+      <Card className={classes.card}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              R
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="Omar Bsoul"
+          subheader="September 14, 2016"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {content}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
           </IconButton>
-        }
-        title="Omar Bsoul"
-        subheader="September 14, 2016"
-      />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {content.length > limit && !readMore ? (
-            `${content.substring(0, limit)}`
-          ) : (
-            <Collapse in={readMore} timeout="auto" unmountOnExit>
-              {content}
-            </Collapse>
-          )}
-          {content.length > limit && (
-            <Typography onClick={handleReadMoreClick}>
-              {readMore ? 'Read less...' : 'Read more...'}
-            </Typography>
-          )}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="comments"
-        >
-          <CommentIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-      </CardActions>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="comments"
+          >
+            <CommentIcon />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+        </CardActions>
+      </Card>
       <Collapse in={expanded}>
-        <CommentSection comments={['hello', 'welcome', 'finally']} />
+        <Paper>
+          <CommentSection comments={comments} />
+        </Paper>
       </Collapse>
-    </Card>
+    </React.Fragment>
   );
 }

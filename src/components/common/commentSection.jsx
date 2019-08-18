@@ -1,7 +1,6 @@
 import React from 'react';
 
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
 
 import Comment from './comment';
 
@@ -10,11 +9,9 @@ const CommentSection = props => {
 
   return (
     <List>
-      <ListItem>
-        {comments.map(comment => (
-          <Comment comment={comment} />
-        ))}
-      </ListItem>
+      {comments.map(comment => (
+        <Comment comment={comment} />
+      ))}
     </List>
   );
 };
