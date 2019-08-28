@@ -20,6 +20,7 @@ import CommentIcon from '@material-ui/icons/Comment';
 import { red } from '@material-ui/core/colors';
 
 import CommentSection from './commentSection';
+import formatDate from '../../helpers/formatDate';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -43,55 +44,30 @@ const useStyles = makeStyles(theme => ({
 
 export default function Post(props) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  let { limit } = props;
-  limit = parseInt(limit || '100');
-
-  const content = `This impressive paella is a perfect party dish and a fun meal to cook together with your
-  guests. Add 1 cup of frozen peas along with the mussels, if you like.`;
-  const comments = [
-    {
-      text:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore rerum ea veritatis repellat provident ducimus autem exercitationem dicta alias deleniti rem molestiae ipsam, et blanditiis! Delectus tempora dolorem nulla fuga?',
-      user: { fullName: 'Omar Bsoul' }
-    },
-    {
-      text:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore rerum ea veritatis repellat provident ducimus autem exercitationem dicta alias deleniti rem molestiae ipsam, et blanditiis! Delectus tempora dolorem nulla fuga?',
-      user: { fullName: 'Mossab Alhariri' }
-    },
-    {
-      text:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore rerum ea veritatis repellat provident ducimus autem exercitationem dicta alias deleniti rem molestiae ipsam, et blanditiis! Delectus tempora dolorem nulla fuga?',
-      user: { fullName: 'Omar Bsoul' }
-    }
-  ];
+  const [expanded, setExpanded] = React.useState(true);
 
   function handleExpandClick() {
     setExpanded(!expanded);
   }
 
+  const { user, createdAt, text, comments } = props;
+
   return (
     <React.Fragment>
       <Card className={classes.card}>
         <CardHeader
-          avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
-              R
-            </Avatar>
-          }
+          avatar={<Avatar aria-label="recipe" className={classes.avatar} src={user.picture} />}
           action={
             <IconButton aria-label="settings">
               <MoreVertIcon />
             </IconButton>
           }
-          title="Omar Bsoul"
-          subheader="September 14, 2016"
+          title={user.fullName}
+          subheader={formatDate(createdAt)}
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {content}
+            {text}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>

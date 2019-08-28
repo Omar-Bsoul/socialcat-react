@@ -10,7 +10,7 @@ const CommentSection = props => {
   return (
     <List>
       {comments.map(comment => (
-        <Comment comment={comment} />
+        <Comment {...comment} key={comment.id} />
       ))}
     </List>
   );
